@@ -1,4 +1,4 @@
-let cart = [];
+let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
 // Fetch products from the Fake Store API
 async function fetchProducts() {
@@ -43,6 +43,9 @@ function displayProducts(products) {
             }
             alert(`${productName} has been added to your cart!`);
             updateCartCount();
+
+            // Store cart in local storage
+            localStorage.setItem('cart', JSON.stringify(cart));
         });
     });
 }
@@ -52,11 +55,6 @@ function updateCartCount() {
     const cartCount = document.getElementById('cart-count');
     cartCount.textContent = cart.reduce((total, item) => total + item.qty, 0);
 }
-
-// Store cart in local storage
-window.addEventListener('beforeunload', () => {
-    localStorage.setItem('cart', JSON.stringify(cart));
-});
 
 // Dark Mode Toggle
 const themeToggleButton = document.getElementById('theme-toggle');
