@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Commerce Website</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo">My E-Commerce</div>
+        <button class="menu-toggle" aria-label="Toggle navigation">&#9776;</button>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#shop">Shop</a></li>
+                <li><a href="checkout.html">Cart (<span id="cart-count">0</span>)</a></li>
+                <li><button id="theme-toggle">Toggle Dark Mode</button></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section id="home" class="home">
+        <h1>Welcome to Our Shop</h1>
+        <p>Find the best products here!</p>
+    </section>
+
+    <section id="shop" class="shop">
+        <h2>Shop Our Products</h2>
+        <div id="product-list" class="product-list"></div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 My E-Commerce. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

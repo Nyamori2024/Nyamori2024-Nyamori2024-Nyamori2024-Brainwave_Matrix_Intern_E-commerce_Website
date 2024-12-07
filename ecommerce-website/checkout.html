@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo">My E-Commerce</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#shop">Shop</a></li>
+                <li><a href="checkout.html">Cart (<span id="cart-count">0</span>)</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="checkout">
+        <h2>Your Cart</h2>
+        <div id="cart-items"></div>
+        <div class="total">
+            <h3>Total Items: <span id="total-count">0</span></h3>
+            <h3>Total Amount: $<span id="total-price">0.00</span></h3>
+        </div>
+        <button id="checkout-btn">Proceed to Checkout</button>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 My E-Commerce. All rights reserved.</p>
+    </footer>
+
+    <script src="checkout.js"></script>
+</body>
+</html>

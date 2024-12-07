@@ -1,0 +1,12 @@
+{
+  "name": "nyamori2024-nyamori2024-nyamori2024-brainwave_matrix_intern_e-commerce_website",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
