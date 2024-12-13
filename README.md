@@ -8,6 +8,7 @@ This project is an e-commerce website with a shopping cart feature. Users can br
 - **Add to Cart:** Users can add products to the cart. The quantity of products in the cart is updated each time an item is added.
 - **Persistent Cart:** The cart is saved in the browser's `localStorage`, ensuring that the cart persists even after the page is reloaded or revisited.
 - **Dynamic Cart Count:** The cart count in the navigation bar is updated dynamically as products are added.
+- **Snackbar Notifications**: When a product is added to the cart, a snackbar notification will appear, confirming the action in a visually appealing way.
 
 ## Installation
 
@@ -29,6 +30,12 @@ This project is an e-commerce website with a shopping cart feature. Users can br
    
 3. **Persistent Cart:**
    - Even after refreshing the page or reopening the website, the cart's contents will remain as long as the `localStorage` is not cleared.
+
+4. **Snackbar Notifications
+
+    -After adding a product to the cart, a vibrant snackbar notification will appear at the bottom of the screen. This gives users feedback that the product has been 
+     successfully added to the cart.
+     
 
 ## Technologies Used
 - **HTML:** Structure of the website.
