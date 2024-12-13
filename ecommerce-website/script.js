@@ -56,6 +56,34 @@ function updateCartCount() {
     cartCount.textContent = cart.reduce((total, item) => total + item.qty, 0);
 }
 
+// Display cart items in the cart page
+function displayCartItems() {
+    const cartItemsContainer = document.getElementById('cart-items');
+    const totalPriceElement = document.getElementById('total-price');
+
+    cartItemsContainer.innerHTML = ''; // Clear the cart items container
+    let totalPrice = 0;
+
+    cart.forEach(item => {
+        const itemElement = document.createElement('div');
+        itemElement.classList.add('cart-item');
+        itemElement.innerHTML = `
+            <img src="${item.image}" alt="${item.name}" class="cart-item-image">
+            <div class="cart-item-details">
+                <h4>${item.name}</h4>
+                <p>Price: $${item.price.toFixed(2)}</p>
+                <p>Quantity: ${item.qty}</p>
+                <p>Total: $${(item.price * item.qty).toFixed(2)}</p>
+            </div>
+        `;
+        cartItemsContainer.appendChild(itemElement);
+
+        totalPrice += item.price * item.qty;
+    });
+
+    totalPriceElement.textContent = `Total Price: $${totalPrice.toFixed(2)}`;
+}
+
 // Dark Mode Toggle
 const themeToggleButton = document.getElementById('theme-toggle');
 themeToggleButton.addEventListener('click', () => {
@@ -77,3 +105,10 @@ menuToggleButton.addEventListener('click', () => {
 
 // Fetch products on page load
 window.onload = fetchProducts;
+
+// Display cart items on the cart page load
+if (window.location.pathname.includes('checkout.html')) {
+    displayCartItems();
+}
+
+

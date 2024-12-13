@@ -13,25 +13,71 @@
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="index.html#shop">Shop</a></li>
-                <li><a href="checkout.html">Cart (<span id="cart-count">0</span>)</a></li>
             </ul>
         </nav>
     </header>
-
-    <section class="checkout">
+    
+    <section id="cart" class="cart">
         <h2>Your Cart</h2>
-        <div id="cart-items"></div>
-        <div class="total">
-            <h3>Total Items: <span id="total-count">0</span></h3>
-            <h3>Total Amount: $<span id="total-price">0.00</span></h3>
+        <div id="cart-items">
+            <!-- Cart items will be rendered here -->
         </div>
-        <button id="checkout-btn">Proceed to Checkout</button>
+        <h3 id="total-price">Total Price: $0.00</h3>
+        <button id="clear-cart">Clear Cart</button>
     </section>
 
     <footer>
         <p>&copy; 2024 My E-Commerce. All rights reserved.</p>
     </footer>
 
-    <script src="checkout.js"></script>
+    <script>
+        // Function to render cart items
+        function renderCart() {
+            const cartItemsContainer = document.getElementById('cart-items');
+            const totalPriceElement = document.getElementById('total-price');
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            
+            if (cart.length === 0) {
+                cartItemsContainer.innerHTML = '<p>Your cart is empty.</p>';
+                totalPriceElement.textContent = 'Total Price: $0.00';
+                return;
+            }
+
+            let totalPrice = 0;
+
+            const itemsHTML = cart.map(item => {
+                const itemTotal = item.price * item.qty;
+                totalPrice += itemTotal;
+                return `
+                    <div class="cart-item">
+                        <img src="${item.image}" alt="${item.name}" class="cart-item-image">
+                        <div class="cart-item-details">
+                            <h4>${item.name}</h4>
+                            <p>Price: $${item.price.toFixed(2)}</p>
+                            <p>Quantity: ${item.qty}</p>
+                            <p>Total: $${itemTotal.toFixed(2)}</p>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+            
+            cartItemsContainer.innerHTML = itemsHTML;
+            totalPriceElement.textContent = `Total Price: $${totalPrice.toFixed(2)}`;
+        }
+
+        // Function to clear the cart
+        function clearCart() {
+            localStorage.removeItem('cart');
+            renderCart();
+            const cartCount = document.getElementById('cart-count');
+            if (cartCount) cartCount.textContent = '0';
+        }
+
+        // Render cart on page load
+        document.addEventListener('DOMContentLoaded', renderCart);
+
+        // Add event listener for clear cart button
+        document.getElementById('clear-cart').addEventListener('click', clearCart);
+    </script>
 </body>
 </html>
