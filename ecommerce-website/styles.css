@@ -183,3 +183,34 @@ header.dark-mode {
 footer.dark-mode {
     background-color: #1f1f1f;
 }
+
+/* Snackbar styles */
+/* Snackbar styles */
+#snackbar {
+    visibility: hidden; /* Hidden by default */
+    min-width: 250px; /* Minimum width of the snackbar */
+    margin-left: -125px; /* Center the snackbar */
+    background-color: #4CAF50; /* Bright green background */
+    color: #fff; /* White text */
+    text-align: center; /* Center the text */
+    border-radius: 2px; /* Rounded corners */
+    padding: 16px; /* Padding inside the snackbar */
+    position: fixed; /* Fixed position */
+    z-index: 1; /* Stay on top */
+    left: 50%; /* Center horizontally */
+    bottom: 30px; /* 30px from the bottom */
+    font-size: 17px; /* Font size */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Add a shadow to make it pop */
+    transition: visibility 0.5s, opacity 0.5s linear; /* Fade-in and fade-out */
+}
+
+#snackbar.show {
+    visibility: visible;
+    opacity: 1;
+    transition: visibility 0.5s, opacity 0.5s linear;
+}
+
+/* Optional: Add hover effect */
+#snackbar:hover {
+    background-color: #45a049; /* Darker green when hovered */
+}
